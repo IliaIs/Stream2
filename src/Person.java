@@ -14,22 +14,27 @@ public class Person {
     }
 
     public String getName() {
+
         return name;
     }
 
     public String getFamily() {
+
         return family;
     }
 
     public Integer getAge() {
+
         return age;
     }
 
     public Sex getSex() {
+
         return sex;
     }
 
     public Education getEducation() {
+
         return education;
     }
 

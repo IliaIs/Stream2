@@ -1,7 +1,5 @@
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 
 public class Main {
     public static void main(String[] args) {
@@ -21,18 +19,24 @@ public class Main {
         persons.stream()
                 .filter(age -> age.getAge() < 18)
                 .count();
-//        persons.stream()
-//                .filter(sex -> sex.getSex() == Sex.MAN)
-//                .filter(age -> age.getAge() >= 18 && age.getAge() < 27)
-//                .map(Person::getFamily)
-//                .collect(Collectors.toList())
-//                .forEach(System.out::println);
+
+        persons.stream()
+                .filter(sex -> sex.getSex() == Sex.MAN)
+                .filter(age -> age.getAge() >= 18 && age.getAge() < 27)
+                .map(Person::getFamily)
+                .collect(Collectors.toList());
+
         persons.stream()
                 .filter(education -> education.getEducation() == Education.HIGHER)
-                .filter()
-//                .filter(sex -> sex.getSex() == Sex.WOMAN)
-//                .filter(age -> age.getAge() >= 18 && age.getAge() < 60)
-//                .sorted(Comparator.comparing(Person::getFamily))
-//                .collect(Collectors.toList());
+                .filter(
+                        sex -> sex.getSex() == Sex.MAN ?
+                                sex.getAge() >= 18 && sex.getAge() < 65 :
+                                sex.getAge() >= 18 && sex.getAge() < 60
+                )
+                .sorted(Comparator.comparing(Person::getFamily))
+                .collect(Collectors.toList());
     }
 }
+
+
+
